@@ -1,0 +1,13 @@
+import imageio.v3 as iio
+from PIL import Image
+import numpy as np
+
+filenames = ['im1.png', 'im2.png']
+images = []
+size = (300, 300)
+
+for filename in filenames:
+    img = Image.open(filename).convert('RGB')
+    img = img.resize(size)
+    images.append(np.array(img))
+iio.imwrite('jinx.gif', images, duration = 500, loop = 0)
